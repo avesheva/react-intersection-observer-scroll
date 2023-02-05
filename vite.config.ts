@@ -10,12 +10,7 @@ export default defineConfig({
       fileName: format => `your-lib-name.${ format }.js`,
     },
     rollupOptions: {
-      external: ['React'],
-      output: {
-        globals: {
-          react: 'React',
-        },
-      },
+      external: ['react'],
     },
   },
 
