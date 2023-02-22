@@ -1,3 +1,3 @@
-import YourLibNameComponent from './components/YourLibNameComponent'
+import ReactSmartScroll from './components/ReactSmartScroll'
 
-export default YourLibNameComponent
+export default ReactSmartScroll

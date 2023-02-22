@@ -1,21 +1,24 @@
 {
-  "name": "your-lib-name",
+  "name": "react-smart-scroll",
   "version": "1.0.0",
-  "description": "Your lib description",
-  "homepage": "https://github.com/avesheva/react-ts-lib-starter",
-  "author": "Your Name <yourmail@gmail.com>",
+  "description": "React typescript scroll block with items visibility detection and other features",
+  "homepage": "https://github.com/avesheva/react-smart-scroll",
+  "author": "Andrii Shevchenko <shevchenkoandrii.dev@gmail.com>",
   "license": "MIT",
   "keywords": [
     "react",
     "javascript",
-    "typescript"
+    "typescript",
+    "scroll",
+    "infinite scroll",
+    "intersection observer"
   ],
   "private": false,
-  "main": "dist/your-lib-name.umd.js",
-  "module": "dist/your-lib-name.es.js",
+  "main": "dist/react-smart-scroll.umd.js",
+  "module": "dist/react-smart-scroll.es.js",
   "exports": {
-    "import": "./dist/your-lib-name.es.js",
-    "require": "./dist/your-lib-name.umd.js"
+    "import": "./dist/react-smart-scroll.es.js",
+    "require": "./dist/react-smart-scroll.umd.js"
   },
   "files": [
     "dist"

@@ -18,7 +18,8 @@
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
     "react/no-unescaped-entities": 0,
-    "@typescript-eslint/comma-dangle": [2, "always-multiline"]
+    "@typescript-eslint/comma-dangle": [2, "always-multiline"],
+    "@typescript-eslint/no-explicit-any": 0
   },
   "extends": [
     "plugin:react/recommended",
