@@ -1,12 +1,12 @@
-import React, { FC, ReactNode, useEffect } from 'react'
+import React, { FC, ReactNode, useEffect, useRef } from 'react'
 
-export interface IScrollData {
+export interface IIntersectionData {
   scrollDirection: 'up' | 'down',
   entries: IntersectionObserverEntry[],
 }
 export interface IProps {
   wrapperId?: string,
-  scrollCallback?: (scrollData: IScrollData) => any,
+  intersectionCallback?: (scrollData: IIntersectionData) => any,
   callbackDelay?: number,
   children: ReactNode[],
   // Intersection observer options
@@ -29,13 +29,14 @@ export const delay = (f: (args: IntersectionObserverEntry[]) => void, t: number)
 
 const ReactSmartScroll: FC<IProps> = ({
   wrapperId = 'rssListWrapper',
-  scrollCallback,
+  intersectionCallback,
   callbackDelay = 0,
   children,
   // Intersection observer options
   threshold = 0,
   rootMargin,
 }) => {
+  const intersectionObserver = useRef<IntersectionObserver>()
 
   useEffect(() =>{
     if (!mounted) {
@@ -45,25 +46,32 @@ const ReactSmartScroll: FC<IProps> = ({
       lastY = wrapper.scrollTop
 
       const observerCallBack = delay((entries: IntersectionObserverEntry[]): void => {
-        if (scrollCallback) {
-          const data: IScrollData = { scrollDirection: lastY > wrapper.scrollTop ? 'up' : 'down', entries }
+        if (intersectionCallback) {
+          const data: IIntersectionData = { scrollDirection: lastY > wrapper.scrollTop ? 'up' : 'down', entries }
 
           lastY = wrapper.scrollTop
-          scrollCallback(data)
+          intersectionCallback(data)
         }
       }, callbackDelay)
 
-      const observer = new IntersectionObserver(observerCallBack, {
+      intersectionObserver.current = new IntersectionObserver(observerCallBack, {
         root: wrapper,
         threshold,
         rootMargin,
       })
 
       for (const child of wrapper.children) {
-        observer.observe(child)
+        intersectionObserver.current.observe(child)
       }
 
       mounted = true
+    }
+
+    return () => {
+      if (mounted) {
+        mounted = false
+        intersectionObserver.current?.disconnect()
+      }
     }
   }, [])
 
