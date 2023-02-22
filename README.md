@@ -1,45 +1,60 @@
-# react-ts-lib-starter
+# react-smart-scroll
 
-React boilerplate for library creation with typescript, vite, tests, linter and husky
+React lightweight, easy to use scroll typescript component. Built with [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) api, allows tracking scroll items position, state, visibility, scroll direction, etc. Could be used for list lazy loading, infinite scroll implementation, viewed items marking and so on.
 
-## Stack
-* React 18.2
-* Typescript 4.9
-* Vite 4.0
-* Jest 29.3
-* Husky 8.0
-
-## Usage
-```bash
-# SSH
-git clone git@github.com:avesheva/react-ts-lib-starter.git
+## Installation
+```shell
+# with npm
+npm install react-smart-scroll
 ```
-```bash
-# HTTPS
-git clone https://github.com/avesheva/react-ts-lib-starter.git
-```
-then
-```
-cd react-ts-lib-starter
-npm install
-```
-or
-```
-cd react-ts-lib-starter
-yarn install
+```shell
+# with yarn
+yarn add react-smart-scroll
 ```
 
-## Run
+
+## Types
+```typescript
+interface IIntersectionData {
+  scrollDirection: 'up' | 'down',
+  entries: IntersectionObserverEntry[],
+}
 ```
-npm run dev
+
+## Basic usage
+```javascript
+import SmartScroll from 'react-smart-scroll'
+
+function App() {
+  const someList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] // Just for example. You can wrap any content you want
+
+  const intersectionCallback = (data: IIntersectionData) => {
+    console.log('Parent scroll callback : ', data)
+  }
+
+  return (
+    <div className="App">
+      <SmartScroll
+        wrapperId="smartScrollContainer"
+        intersectionCallback={ intersectionCallback }
+      >
+        { someList.map((item) => <div key={ item } className="listItem" data-index={ item }>
+          ITEM : { item }
+        </div>) }
+      </SmartScroll>
+    </div>
+  )
+}
+
+export default App
 ```
 
-## Replace
+## Props
+| NAME                  | TYPE                              | DEFAULT          | DESCRIPTION |
+|-----------------------|-----------------------------------|------------------|-------------------------------|
+| wrapperId?            | String                            | rssListWrapper   | Main block id. Component starts tracking this block and its children for intersections           |
+| intersectionCallback? | (scrollData: IScrollData) => any  | -                | Intersection event handler. Fires when child component intersect with main block and becomes hidden or visible   |
+| callbackDelay?(ms)    | Number                            | 0                | Delay for calback function in milliseconds     |
+| threshold?            | number, number[]                  | 0                | [Intersection Observer constructor](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver) options param |
+| rootMargin?           | String                            | -                | [Intersection Observer constructor](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver) options param |
 
-Replace **"react-smart-scroll"** in _package.json_, _vite.config.ts_ with your lib actually name. Set your actually values to _package.json_ fields. Rename tests file and lib component file, imports.
-
-Replace git remote url with your repo: `git remote set-url origin <your.repo-url>`
-
-## Edit
-
-Edit your REDME file
