@@ -1,8 +1,8 @@
 {
   "name": "react-intersection-observer-scroll",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React typescript scroll block with Intersection Observer features",
-  "homepage": "https://github.com/avesheva/react-smart-scroll",
+  "homepage": "https://github.com/avesheva/react-intersection-observer-scroll",
   "author": "Andrii Shevchenko <shevchenkoandrii.dev@gmail.com>",
   "license": "MIT",
   "keywords": [
