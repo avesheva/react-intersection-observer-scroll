@@ -27,7 +27,7 @@ export const delay = (f: (args: IntersectionObserverEntry[]) => void, t: number)
   }
 }
 
-const ReactSmartScroll: FC<IProps> = ({
+const ReactIntersectionObserverScroll: FC<IProps> = ({
   wrapperId = 'rssListWrapper',
   intersectionCallback,
   callbackDelay = 0,
@@ -82,4 +82,4 @@ const ReactSmartScroll: FC<IProps> = ({
   )
 }
 
-export default ReactSmartScroll
+export default ReactIntersectionObserverScroll

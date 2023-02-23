@@ -1,6 +1,6 @@
 {
-  "name": "react-smart-scroll",
-  "version": "1.0.0",
+  "name": "react-intersection-observer-scroll",
+  "version": "1.0.1",
   "description": "React typescript scroll block with Intersection Observer features",
   "homepage": "https://github.com/avesheva/react-smart-scroll",
   "author": "Andrii Shevchenko <shevchenkoandrii.dev@gmail.com>",
@@ -15,11 +15,11 @@
     "lazy loading"
   ],
   "private": false,
-  "main": "dist/react-smart-scroll.umd.js",
-  "module": "dist/react-smart-scroll.es.js",
+  "main": "dist/react-intersection-observer-scroll.umd.js",
+  "module": "dist/react-intersection-observer-scroll.es.js",
   "exports": {
-    "import": "./dist/react-smart-scroll.es.js",
-    "require": "./dist/react-smart-scroll.umd.js"
+    "import": "./dist/react-intersection-observer-scroll.es.js",
+    "require": "./dist/react-intersection-observer-scroll.umd.js"
   },
   "files": [
     "dist"

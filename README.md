@@ -1,15 +1,15 @@
-# react-smart-scroll
+# react-intersection-observer-scroll
 
 React lightweight, easy to use scroll typescript component. Built with [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) api, allows tracking scroll items position, state, visibility, scroll direction, etc. Could be used for list lazy loading, infinite scroll implementation, viewed items marking and so on.
 
 ## Installation
 ```shell
 # with npm
-npm install react-smart-scroll
+npm install react-intersection-observer-scroll
 ```
 ```shell
 # with yarn
-yarn add react-smart-scroll
+yarn add react-intersection-observer-scroll
 ```
 
 
@@ -23,7 +23,7 @@ interface IIntersectionData {
 
 ## Basic usage
 ```javascript
-import SmartScroll from 'react-smart-scroll'
+import SmartScroll from 'react-intersection-observer-scroll'
 
 function App() {
   const someList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] // Just for example. You can wrap any content you want

@@ -6,8 +6,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/index.tsx'),
-      name: 'react-smart-scroll',
-      fileName: format => `react-smart-scroll.${ format }.js`,
+      name: 'react-intersection-observer-scroll',
+      fileName: format => `react-intersection-observer-scroll.${ format }.js`,
     },
     rollupOptions: {
       external: ['react'],

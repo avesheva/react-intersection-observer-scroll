@@ -1,3 +1,3 @@
-import ReactSmartScroll from './components/ReactSmartScroll'
+import ReactIntersectionObserverScroll from './components/ReactIntersectionObserverScroll'
 
-export default ReactSmartScroll
+export default ReactIntersectionObserverScroll
