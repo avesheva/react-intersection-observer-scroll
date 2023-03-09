@@ -7,6 +7,7 @@ export interface IIntersectionData {
 export interface IProps {
   wrapperId?: string,
   intersectionCallback?: (scrollData: IIntersectionData) => any,
+  checkViewing?: boolean
   callbackDelay?: number,
   children: ReactNode[],
   // Intersection observer options
@@ -32,13 +33,14 @@ const ReactIntersectionObserverScroll: FC<IProps> = ({
   intersectionCallback,
   callbackDelay = 0,
   children,
+  checkViewing = false,
   // Intersection observer options
   threshold = 0,
   rootMargin,
 }) => {
   const intersectionObserver = useRef<IntersectionObserver>()
 
-  useEffect(() =>{
+  useEffect(() => {
     if (!mounted) {
       const wrapper = document.getElementById(wrapperId)
 
@@ -48,6 +50,14 @@ const ReactIntersectionObserverScroll: FC<IProps> = ({
       const observerCallBack = delay((entries: IntersectionObserverEntry[]): void => {
         if (intersectionCallback) {
           const data: IIntersectionData = { scrollDirection: lastY > wrapper.scrollTop ? 'up' : 'down', entries }
+
+          if (checkViewing) {
+            entries.forEach((entry: IntersectionObserverEntry) => {
+              if (entry.isIntersecting) {
+                intersectionObserver.current?.unobserve(entry.target)
+              }
+            })
+          }
 
           lastY = wrapper.scrollTop
           intersectionCallback(data)
