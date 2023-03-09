@@ -55,6 +55,7 @@ export default App
 | wrapperId?            | String                            | rssListWrapper   | Main block id. Component starts tracking this block and its children for intersections           |
 | intersectionCallback? | (scrollData: IScrollData) => any  | -                | Intersection event handler. Fires when child component intersect with main block and becomes hidden or visible   |
 | callbackDelay?(ms)    | Number                            | 0                | Delay for calback function in milliseconds     |
+| checkViewing?      | Boolean          | false                | If __*true*__, component stop observing item in main block after first intersection. Improves performance. Can be used with message/notifications lists, for example, when you need to check item visibility only once
 | threshold?            | number, number[]                  | 0                | [Intersection Observer constructor](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver) options param |
 | rootMargin?           | String                            | -                | [Intersection Observer constructor](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver) options param |
 
